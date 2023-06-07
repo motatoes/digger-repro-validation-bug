@@ -1,0 +1,17 @@
+projects:
+  - name: ecr
+    dir: ecr
+    terragrunt: true
+  - name: ac2ical
+    dir: app
+    terragrunt: true
+    workflow: ac2ical
+
+workflows:
+  ac2ical:
+    env_vars:
+      commands:
+        - name: TF_VAR_ac_username
+          value_from: AC_USERNAME
+        - name: TF_VAR_ac_password
+          value_from: AC_PASSWORD
